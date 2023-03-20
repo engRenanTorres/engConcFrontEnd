@@ -1,17 +1,16 @@
 import React from 'react';
-import Topbar from './components/Topbar';
 import { GlobalStyles } from './styles/global-styles';
-import PageProvider from './utils/theme/PageProvider';
+import PersistedThemeProvider from './utils/providers/PersistedThemeProvider';
+import DefaultPageProvider from './utils/providers/DefalutPageProvider';
 
 function App() {
   return (
-    <PageProvider>
+    <PersistedThemeProvider>
       <div className="App">
         <GlobalStyles />
-        <Topbar />
-        oi
+        <DefaultPageProvider>oi</DefaultPageProvider>
       </div>
-    </PageProvider>
+    </PersistedThemeProvider>
   );
 }
 

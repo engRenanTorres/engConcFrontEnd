@@ -3,10 +3,12 @@ import { ThemeProvider } from 'styled-components';
 import PersistedThemeContext from '../../context/ThemeContext';
 import { themeDefault, themeDark } from '../../styles/theme';
 import { usePersistedState } from '../hooks/usePersistedState';
+import { ProSidebarProvider } from 'react-pro-sidebar';
+
 interface PageProviderProps {
   children: ReactNode;
 }
-const PageProvider = ({ children }: PageProviderProps) => {
+const PersistedThemeProvider = ({ children }: PageProviderProps) => {
   const [themeTitle, setThemeTitle] = usePersistedState<'Default' | 'Dark'>(
     'theme',
     'Default',
@@ -22,9 +24,9 @@ const PageProvider = ({ children }: PageProviderProps) => {
       <ThemeProvider
         theme={themeTitle === 'Default' ? themeDefault : themeDark}
       >
-        {children}
+        <ProSidebarProvider>{children}</ProSidebarProvider>
       </ThemeProvider>
     </PersistedThemeContext.Provider>
   );
 };
-export default PageProvider;
+export default PersistedThemeProvider;

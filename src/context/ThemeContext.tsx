@@ -6,7 +6,7 @@ import { DefaultTheme } from 'styled-components';
 type ThemeTitle = 'Default' | 'Dark';
 
 type ThemeContextProps = {
-  theme?: DefaultTheme;
+  theme: DefaultTheme;
   toggleTheme: (title: ThemeTitle) => void;
 };
 
