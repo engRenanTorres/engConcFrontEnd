@@ -9,11 +9,7 @@ import { ThemeSwitcher } from '../ThemeSwitcher';
 import { StyledBox } from './styles';
 //import useAuth from '../../utils/hooks/useAuth';
 
-interface Props {
-  toggleTheme: () => void;
-}
-
-const Topbar: React.FC<Props> = ({ toggleTheme }: Props) => {
+const Topbar: React.FC = () => {
   //const { currentUser, loading, signin, signout } = useAuth();
   const currentUser = { name: 'renan' };
   return (
@@ -28,7 +24,7 @@ const Topbar: React.FC<Props> = ({ toggleTheme }: Props) => {
 
       {/* ICONS */}
       <Box display="flex">
-        <ThemeSwitcher toggleTheme={toggleTheme} />
+        <ThemeSwitcher />
         <IconButton className="icon-button">
           <NotificationsOutlinedIcon />
         </IconButton>

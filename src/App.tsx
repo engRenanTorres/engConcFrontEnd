@@ -1,29 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Topbar from './components/Topbar';
 import { GlobalStyles } from './styles/global-styles';
-import { ThemeProvider } from 'styled-components';
-import { themeDark, themeDefault } from './styles/theme';
-import { usePersistedState } from './utils/hooks/usePersistedState';
+import PageProvider from './utils/theme/PageProvider';
 
 function App() {
-  const [theme, setTheme] = usePersistedState<'Default' | 'Dark'>(
-    'theme',
-    'Default',
-  );
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'Default' ? 'Dark' : 'Default';
-    setTheme(newTheme);
-  };
-
   return (
-    <ThemeProvider theme={theme === 'Default' ? themeDefault : themeDark}>
+    <PageProvider>
       <div className="App">
         <GlobalStyles />
-        <Topbar toggleTheme={toggleTheme} />
+        <Topbar />
         oi
       </div>
-    </ThemeProvider>
+    </PageProvider>
   );
 }
 
