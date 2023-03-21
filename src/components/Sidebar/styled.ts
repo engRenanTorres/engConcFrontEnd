@@ -4,6 +4,9 @@ import { Box } from '@mui/material';
 
 export const StyledIcon = styled(IconButton)`
   color: ${({ theme }) => theme.palette.neutral.light};
+  .icon-button {
+    color: ${({ theme }) => theme.palette.neutral.light};
+  }
 `;
 
 export const StyledNavBox = styled(Box)`

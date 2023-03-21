@@ -4,7 +4,7 @@ const ACCESS_TOKEN_KEY = 'QSATKSO';
 
 const ONE_YEAR = 60 * 60 * 24 * 360; //seconds
 
-const cookies = new Cookies;
+const cookies = new Cookies();
 
 export const tokenService = {
   save(accessToken: string, ctx: any = null) {

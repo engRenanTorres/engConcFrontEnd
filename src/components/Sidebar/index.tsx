@@ -2,11 +2,10 @@ import { useContext, useState } from 'react';
 import {
   Sidebar as ProSidebar,
   Menu,
-  MenuItem,
   sidebarClasses,
   useProSidebar,
 } from 'react-pro-sidebar';
-import { Box, Typography } from '@mui/material';
+import { Box, ListItem, Typography } from '@mui/material';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
 import ContactsOutlinedIcon from '@mui/icons-material/ContactsOutlined';
@@ -19,11 +18,10 @@ import PieChartOutlineOutlinedIcon from '@mui/icons-material/PieChartOutlineOutl
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
-import { StyledIcon } from './styled';
-import { Item, ItemsTile } from './itens';
+import { StyledIcon, StyledNavBox } from './styled';
+import { MItem as Item, ItemsTile } from './itens2';
 import PersistedThemeContext from '../../context/ThemeContext';
 import { typography } from '../../styles/typography';
-import logo from '../../../public/assets/page-logo.svg';
 
 const Sidebar = () => {
   const { theme } = useContext(PersistedThemeContext);
@@ -32,69 +30,42 @@ const Sidebar = () => {
   const { collapseSidebar, collapsed } = useProSidebar();
 
   return (
-    <Box
-      sx={{
-        '& .pro-sidebar-inner': {
-          background: `${theme.palette.primary.light} !important`,
-          height: '100vh',
-        },
-        '& .pro-icon-wrapper': {
-          backgroundColor: 'transparent !important',
-        },
-        '& .pro-inner-item': {
-          padding: '5px 35px 5px 20px !important',
-        },
-        '& .pro-inner-item:hover': {
-          color: '#868dfb !important',
-        },
-        '& .pro-menu-item.active': {
-          color: '#6870fa !important',
-        },
-      }}
-    >
+    <StyledNavBox>
       <ProSidebar
         rootStyles={{
           [`.${sidebarClasses.container}`]: {
-            background: `${theme.palette.primary.light} !important`,
+            background: `${theme.palette.background.default} !important`,
             height: '100vh',
-            '& .pro-sidebar-inner': {
-              background: `${theme.palette.primary.light} !important`,
-              height: '100vh',
-            },
-            '& .pro-icon-wrapper': {
-              backgroundColor: 'transparent !important',
-            },
-            '& .pro-inner-item': {
-              padding: '5px 35px 5px 20px !important',
-            },
-            '& .pro-inner-item:hover': {
-              color: '#868dfb !important',
-            },
-            '& .pro-menu-item.active': {
-              color: '#6870fa !important',
-            },
           },
         }}
       >
         <Menu>
           {/* LOGO AND MENU ICON */}
-          <MenuItem
+          <ListItem
             onClick={() => {
               collapseSidebar(!collapsed);
               setIsCollapsed(!isCollapsed);
             }}
-            icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
               margin: '10px 0 20px 0',
               color: theme.palette.neutral.light,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
             }}
           >
-            {!isCollapsed && (
+            {collapsed ? <MenuOutlinedIcon /> : undefined}
+            {!collapsed && (
               <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                ml="15px"
+                sx={{
+                  '.icon-button:hover': {
+                    color: 'orange',
+                  },
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  width: '100%',
+                  alignItems: 'center',
+                }}
               >
                 <Typography
                   variant="h3"
@@ -103,22 +74,25 @@ const Sidebar = () => {
                 >
                   ADMINIS
                 </Typography>
-                <StyledIcon onClick={() => setIsCollapsed(!isCollapsed)}>
+                <StyledIcon
+                  style={{ color: theme.palette.neutral.light }}
+                  onClick={() => setIsCollapsed(!isCollapsed)}
+                >
                   <MenuOutlinedIcon />
                 </StyledIcon>
               </Box>
             )}
-          </MenuItem>
+          </ListItem>
 
           {!isCollapsed && (
             <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
                 <img
-                  alt="profile-user"
+                  alt="Logo engenharia de concursos"
                   width="100px"
                   height="100px"
-                  src={'../../../public/assets/page-logo2.png'}
-                  style={{ cursor: 'pointer', borderRadius: '50%' }}
+                  src={'assets/favicon.svg'}
+                  style={{ cursor: 'pointer', borderRadius: '20%' }}
                 />
               </Box>
               <Box textAlign="center">
@@ -171,7 +145,7 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
 
-            <ItemsTile>Simulador</ItemsTile>
+            <ItemsTile>Provas</ItemsTile>
             <Item
               title="Simular Novo Concurso"
               to="/simulator"
@@ -226,7 +200,7 @@ const Sidebar = () => {
           </Box>
         </Menu>
       </ProSidebar>
-    </Box>
+    </StyledNavBox>
   );
 };
 
