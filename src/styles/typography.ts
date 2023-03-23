@@ -7,7 +7,7 @@ export const typography = {
   },
   h1: {
     fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-    fontSize: '2.2rem',
+    fontSize: '4rem',
   },
   h2: {
     fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),

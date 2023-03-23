@@ -1,12 +1,10 @@
 import styled, { css } from 'styled-components';
 import { Box } from '@mui/material';
+import { typography } from '../../styles/typography';
 
 export const StyledSection = styled.section`
-  .jumbotron {
-    background-image: linear-gradient(
-      '180deg,#04a49cff 10%,#025854 100%'
-    ) !important;
-  }
+  background: ${({ theme }) => theme.palette.background.default};
+  padding: 0 2.5rem;
 `;
 
 export const StyledNavBox = styled(Box)`

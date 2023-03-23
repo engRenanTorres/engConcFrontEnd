@@ -1,30 +1,31 @@
+import PageContent from '../../components/PageContent';
+import Jumbotron from '../../components/Jumbotron';
+import DefaultPageProvider from '../../utils/providers/DefalutPageProvider';
 import { StyledSection } from './styled';
+import HomeSideContent from '../../containers/home/SideContent/HomeSideContent';
 
 export default function Home() {
   return (
-    <StyledSection>
-      <div className="container">
-        <div className="nav-scroller py-1 mb-2">
-          <nav className="nav d-flex flex-row justify-content-around">
-            <a className="p2 text-muted" href="#">
-              <span>Engenharia Civil</span>
-            </a>
-            <a className="p2 text-muted" href="#">
-              <span>Engenharia de Segurança</span>
-            </a>
-          </nav>
-        </div>
-
-        <div className="jumbotron p-4 p-md-5 text-white rounded bg-green-light">
-          <div className="col-md-6 px-0">
-            <h1 className="font-italic">Engenharia de concursos</h1>
-            <p className="lead my-3">Simulador de concursos de engenharias</p>
+    <DefaultPageProvider>
+      <StyledSection>
+        <div className="container">
+          <div className="nav-scroller py-1 mb-2">
+            <nav className="nav d-flex flex-row justify-content-around">
+              <a className="p2 text-muted" href="#">
+                <span>Engenharia Civil</span>
+              </a>
+              <a className="p2 text-muted" href="#">
+                <span>Engenharia de Segurança</span>
+              </a>
+            </nav>
           </div>
-        </div>
-      </div>
 
-      <main role="main" className="container">
-        <div className="row">
+          <Jumbotron
+            title="Engenharia de concursos"
+            subtitle="Simulador de concursos de engenharias"
+          />
+        </div>
+        <PageContent sideContent={<HomeSideContent />}>
           <div className="col-md-8 question-main">
             <div className="question-post">
               <h2 className="question-post-title">
@@ -60,47 +61,13 @@ export default function Home() {
               </blockquote>
             </div>
           </div>
-
-          <aside className="col-md-4 question-sidebar">
-            <div className="p-4 mb-3 bg-light rounded">
-              <h4 className="font-italic">Sobre nós</h4>
-              <p className="mb-0">
-                <em>
-                  Somos uma equipe independente de engenheiros de diversas areas
-                  que visam contribuir no acesso ao conhecimento e preparo para
-                  formar engenheiros melhores. Para isso, buscamos selecionar as
-                  melhores questões dos concursos e bancas consagrados em cada
-                  área.
-                </em>
-              </p>
-              <p className="mb-0">
-                <em>sem malesuada magna</em>
-              </p>
-              <hr />
-              <h4 className="font-italic">Mídias Sociais</h4>
-              <ol className="list-unstyled">
-                <li>
-                  <a href="#">Facebook</a>
-                </li>
-                <li>
-                  <a href="#">Twitter</a>
-                </li>
-                <li>
-                  <a href="https://www.linkedin.com/in/renan-torres-3ba43560/">
-                    LinkedIn
-                  </a>
-                </li>
-              </ol>
-            </div>
-          </aside>
-        </div>
-      </main>
-
-      <footer className="question-footer">
-        <p>
-          <a href="#">Voltar ao topo da página</a>
-        </p>
-      </footer>
-    </StyledSection>
+        </PageContent>
+        <footer className="question-footer">
+          <p>
+            <a href="#">Voltar ao topo da página</a>
+          </p>
+        </footer>
+      </StyledSection>
+    </DefaultPageProvider>
   );
 }
