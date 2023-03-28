@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     width: 100%;
     font-family: "Source Sans Pro", sans-serif;
     margin: 0;
+    background: ${({ theme }) => theme.palette.background.default};
 
   }
 

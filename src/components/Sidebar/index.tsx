@@ -34,8 +34,7 @@ const Sidebar = () => {
       <ProSidebar
         rootStyles={{
           [`.${sidebarClasses.container}`]: {
-            background: `${theme.palette.background.default} !important`,
-            height: '100%',
+            background: `${theme.palette.background.default}`,
           },
         }}
       >
