@@ -1,4 +1,4 @@
-import PageContent from '../../components/PageContent';
+import PageContent from '../../components/layout/PageContent';
 import DefaultPageProvider from '../../utils/providers/DefalutPageProvider';
 import { StyledSection } from './styled';
 import HomeSideContent from '../../containers/home/SideContent/HomeSideContent';

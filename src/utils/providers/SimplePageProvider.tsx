@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import Sidebar from '../../components/Sidebar';
 import Topbar from '../../components/Topbar';
 import styled from 'styled-components';
 import PersistedThemeProvider from './PersistedThemeProvider';
@@ -11,10 +10,9 @@ interface PageProviderProps {
 const DefaultPageProvider = ({ children }: PageProviderProps) => {
   return (
     <PersistedThemeProvider>
-      <div className="App">
+      <div className="App" style={{ height: '100%' }}>
         <GlobalStyles />
         <Container>
-          <Sidebar />
           <div className="content">
             <Topbar />
             {children}
@@ -28,11 +26,8 @@ export default DefaultPageProvider;
 
 export const Container = styled.div`
   display: flex;
+  height: 100%;
   .content {
-    height: 100%;
-    width: 100%;
-    font-family: 'Source Sans Pro', sans-serif;
-    margin: 0;
-    background: ${({ theme }) => theme.palette.background.default};
+    background: ${({ theme }) => theme.palette.background.gradient};
   }
 `;

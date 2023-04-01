@@ -7,7 +7,7 @@ const ONE_YEAR = 60 * 60 * 24 * 360; //seconds
 const cookies = new Cookies();
 
 export const tokenService = {
-  save(accessToken: string, ctx: any = null) {
+  save(accessToken: string) {
     globalThis?.localStorage?.setItem(ACCESS_TOKEN_KEY, accessToken);
     cookies.set(ACCESS_TOKEN_KEY, accessToken, {
       maxAge: ONE_YEAR,

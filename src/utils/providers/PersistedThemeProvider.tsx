@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { ThemeProvider } from 'styled-components';
-import PersistedThemeContext from '../../context/ThemeContext';
+import PersistedThemeContext from '../../contexts/ThemeContext';
 import { themeDefault, themeDark } from '../../styles/theme';
 import { usePersistedState } from '../hooks/usePersistedState';
 import { ProSidebarProvider } from 'react-pro-sidebar';

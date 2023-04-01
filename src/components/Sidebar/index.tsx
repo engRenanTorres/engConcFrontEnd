@@ -21,7 +21,7 @@ import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { StyledIcon, StyledNavBox } from './styled';
 import { MItem as Item, ItemsTile } from './itens';
-import PersistedThemeContext from '../../context/ThemeContext';
+import PersistedThemeContext from '../../contexts/ThemeContext';
 import { typography } from '../../styles/typography';
 
 const Sidebar = () => {

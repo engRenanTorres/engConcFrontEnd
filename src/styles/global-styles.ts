@@ -11,11 +11,17 @@ export const GlobalStyles = createGlobalStyle`
     height: 100%;
     width: 100%;
     font-family: "Source Sans Pro", sans-serif;
+    font-size: ${typography.fontSize.medium};
     margin: 0;
     background: ${({ theme }) => theme.palette.background.default};
-
   }
 
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+  }
   html {
     font-size: 62.5%;
   }
@@ -25,17 +31,6 @@ export const GlobalStyles = createGlobalStyle`
     transition: opacity 300ms ease-in-out;
     $:hover {
       opacity: .6;
-    }
-  }
-
-  body {
-    font-size: ${typography.fontSize.medium};
-    background: white;
-  }
-  [data-theme="dark"] {
-    body {
-      background: blue;
-
     }
   }
 

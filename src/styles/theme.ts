@@ -1,3 +1,5 @@
+import { invert, lighten, shade } from 'polished';
+
 // color design tokens export
 export const colors = [
   {
@@ -123,9 +125,12 @@ export const themeDefault = {
     // palette values for light mode
     background: {
       default: colors[1].primary[400],
+      antiDefault: invert(colors[1].primary[400]),
+      strong: shade(0.2, colors[1].primary[400]),
+      gradient: `linear-gradient(180deg, #04a49cff 10%, #025854 100%)`,
     },
     primary: {
-      main: colors[1].primary[100],
+      main: colors[1].primary[900],
       light: colors[1].primary[400],
     },
     secondary: {
@@ -145,6 +150,9 @@ export const themeDark = {
   palette: {
     background: {
       default: colors[0].primary[500],
+      antiDefault: invert(colors[0].primary[500]),
+      strong: lighten(0.2, colors[0].primary[500]),
+      gradient: `linear-gradient(180deg, #04a49cff 10%, #025854 100%)`,
     },
     // palette values for dark mode
     primary: {

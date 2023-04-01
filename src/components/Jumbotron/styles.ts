@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { spacings, typography } from '../../styles/typography';
 
 export const Container = styled.div`
-  background: linear-gradient(180deg, #04a49cff 10%, #025854 100%) !important;
+  background: linear-gradient(180deg, #04a49cff 10%, #025854 100%);
   border-radius: 5px;
   color: #fdfdfd;
   margin-bottom: ${spacings.medium};

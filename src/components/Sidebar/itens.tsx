@@ -1,5 +1,5 @@
 import { typography } from '../../styles/typography';
-import PersistedThemeContext from '../../context/ThemeContext';
+import PersistedThemeContext from '../../contexts/ThemeContext';
 import { ListItem, ListItemButton, Typography } from '@mui/material';
 import { Dispatch, ReactNode, SetStateAction, useContext } from 'react';
 import { useProSidebar } from 'react-pro-sidebar';
