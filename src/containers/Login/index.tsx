@@ -3,7 +3,6 @@ import { Input } from '../../components/ui/Input/Input';
 import { Button } from '../../components/ui/Button';
 import { Container } from './styles';
 import useAuth from '../../utils/hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
 
 interface eventTarget extends HTMLFormControlsCollection {
   email: HTMLInputElement;
@@ -11,7 +10,6 @@ interface eventTarget extends HTMLFormControlsCollection {
 }
 
 const Login = () => {
-  const navigate = useNavigate();
   const { signin } = useAuth();
   const handleLogin: FormEventHandler<HTMLFormElement> = useCallback(
     async (event: React.FormEvent<HTMLFormElement>) => {
@@ -20,7 +18,6 @@ const Login = () => {
         .elements as eventTarget;
       try {
         signin(email.value, password.value);
-        //navigate('/home');
       } catch (error) {
         alert(error);
         console.log(error);
@@ -32,7 +29,7 @@ const Login = () => {
   //if (!currentUser) return router.push('/');
   return (
     <Container>
-      <h1>Bem Vindo!</h1>
+      <h1>Bem Vindo! {process.env.REACT_APP_BACKEND_DEV}</h1>
       <form onSubmit={handleLogin}>
         <Input label="Email" name="email" type="email" placeholder="Email..." />
         <Input

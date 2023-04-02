@@ -36,7 +36,7 @@ const Signup = () => {
       };
       console.log(body);
       await axios
-        .post(process.env.BACKEND_DEV + '/api/users', body)
+        .post(process.env.REACT_APP_BACKEND_DEV + '/api/users', body)
         .then(() => {
           navigate('/login');
           //router.push('/');

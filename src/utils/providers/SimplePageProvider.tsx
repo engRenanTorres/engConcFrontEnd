@@ -1,15 +1,15 @@
 import { ReactNode } from 'react';
 import Topbar from '../../components/Topbar';
 import styled from 'styled-components';
-import PersistedThemeProvider from './PersistedThemeProvider';
 import { GlobalStyles } from '../../styles/global-styles';
+import GeneralProvider from './GeneralProvider';
 
 interface PageProviderProps {
   children: ReactNode;
 }
 const DefaultPageProvider = ({ children }: PageProviderProps) => {
   return (
-    <PersistedThemeProvider>
+    <GeneralProvider>
       <div className="App" style={{ height: '100%' }}>
         <GlobalStyles />
         <Container>
@@ -19,7 +19,7 @@ const DefaultPageProvider = ({ children }: PageProviderProps) => {
           </div>
         </Container>
       </div>
-    </PersistedThemeProvider>
+    </GeneralProvider>
   );
 };
 export default DefaultPageProvider;

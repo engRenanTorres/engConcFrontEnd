@@ -8,7 +8,7 @@ export const authService = {
   async login({ email, password }: LoginBody) {
     return HttpClient<LoginBody>(
       'POST',
-      process.env.BACKEND_DEV + '/api/auth/login',
+      process.env.REACT_APP_BACKEND_DEV + '/api/auth/login',
       {
         body: { email, password },
       },
@@ -22,7 +22,7 @@ export const authService = {
   async getSession(): Promise<Credencials | false> {
     const accessToken = tokenService.get();
     return HttpClientGet(
-      process.env.BACKEND_DEV + '/api/auth/session',
+      process.env.REACT_APP_BACKEND_DEV + '/api/auth/session',
       {},
       accessToken,
     ).then((response) => {
