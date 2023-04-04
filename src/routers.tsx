@@ -8,6 +8,7 @@ import PrivateRoutes from './utils/PrivateRoutes';
 import { AuthProvider } from './contexts/AuthContext';
 import useAuth from './utils/hooks/useAuth';
 import { useEffect } from 'react';
+import NotFound from './pages/NotFound';
 
 export default function AppRouter() {
   const { loading } = useAuth();
@@ -19,12 +20,14 @@ export default function AppRouter() {
       <AuthProvider>
         <Routes>
           <Route element={<PrivateRoutes role={[1, 2]} />}>
-            <Route path="/" element={<App />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/newQuestion" element={<App />} />
           </Route>
+          <Route path="/" element={<App />} />
+          <Route path="/about" element={<About />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </AuthProvider>
     </Router>

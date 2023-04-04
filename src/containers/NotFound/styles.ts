@@ -4,6 +4,11 @@ import { spacings } from '../../styles/typography';
 export const Container = styled.div`
   margin-bottom: ${spacings.medium};
   padding: 0 ${spacings.medium};
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 
   h1 {
     text-align: center;
