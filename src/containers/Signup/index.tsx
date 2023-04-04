@@ -2,7 +2,7 @@ import { FormEventHandler, useCallback } from 'react';
 import { Container } from './styles';
 import { Input } from '../../components/ui/Input/Input';
 import { Button } from '../../components/ui/Button';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 interface eventTarget extends HTMLFormControlsCollection {
@@ -71,9 +71,9 @@ const Signup = () => {
           <Button type="submit">Cadastrar</Button>
 
           <hr />
-          <a href="/login" className="link">
+          <Link to="/login" className="link">
             Já é cadastrado?
-          </a>
+          </Link>
         </div>
       </form>
     </Container>

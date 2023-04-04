@@ -29,8 +29,6 @@ export const AuthProvider: React.FC<Props> = ({ children }: Props) => {
   const navigate = useNavigate();
 
   const signin = async (email: string, password: string) => {
-    console.log('fui chamado');
-
     try {
       setLoading(true);
       return await authService

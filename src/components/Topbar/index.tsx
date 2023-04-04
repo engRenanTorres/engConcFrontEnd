@@ -1,17 +1,17 @@
 import { Box, IconButton } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
-import LoginIcon from '@mui/icons-material/Login';
 import LogoutIcon from '@mui/icons-material/Logout';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 import { StyledBox } from './styles';
-//import useAuth from '../../utils/hooks/useAuth';
+import useAuth from '../../utils/hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const Topbar: React.FC = () => {
-  //const { currentUser, loading, signin, signout } = useAuth();
-  const currentUser = { name: 'renan' };
+  const { currentUser, signout } = useAuth();
+  //const currentUser = { name: 'renan' };
   return (
     <StyledBox>
       {/* SEARCH BAR */}
@@ -31,16 +31,20 @@ const Topbar: React.FC = () => {
         <IconButton className="icon-button">
           <SettingsOutlinedIcon />
         </IconButton>
-        <IconButton
-          className="icon-button"
-          onClick={() => /*signout()*/ console.log('saiu')}
-        >
+        <IconButton className="icon-button" onClick={() => signout()}>
           {currentUser && <span>{currentUser.name}</span>}
+          {!currentUser && (
+            <Link to={'/signup'}>
+              Cadastre-se {/*<AddIcon className="icon-button" />*/}
+            </Link>
+          )}
+        </IconButton>
+        <IconButton className="icon-button" onClick={() => signout()}>
           {currentUser && <LogoutIcon className="icon-button" />}
           {!currentUser && (
-            <a href={'/login'}>
-              <LoginIcon className="icon-button" />
-            </a>
+            <Link to={'/login'}>
+              Entre {/*<LoginIcon className="icon-button" />*/}
+            </Link>
           )}
         </IconButton>
       </Box>
