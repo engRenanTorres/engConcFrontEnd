@@ -4,7 +4,7 @@ import { Input } from '../../components/ui/Input/Input';
 import { Button } from '../../components/ui/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import getEnv from '../../utils/GetEnv';
+import getEnv from '../../utils/getEnv';
 
 interface eventTarget extends HTMLFormControlsCollection {
   name: HTMLInputElement;

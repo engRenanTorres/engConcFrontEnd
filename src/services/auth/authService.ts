@@ -1,4 +1,4 @@
-import getEnv from '../../utils/GetEnv';
+import getEnv from '../../utils/getEnv';
 import { HttpClient, HttpClientGet } from '../../utils/httpClient/httpClient';
 import { tokenService } from './tokenService';
 
