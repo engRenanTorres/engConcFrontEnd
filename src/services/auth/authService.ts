@@ -1,18 +1,17 @@
+import getEnv from '../../utils/GetEnv';
 import { HttpClient, HttpClientGet } from '../../utils/httpClient/httpClient';
 import { tokenService } from './tokenService';
 
 type LoginBody = { email: string; password: string };
 type loginResponse = { token: string };
 
+const backendAdress = getEnv.backendAdress();
+
 export const authService = {
   async login({ email, password }: LoginBody) {
-    return HttpClient<LoginBody>(
-      'POST',
-      process.env.REACT_APP_BACKEND_DEV + '/api/auth/login',
-      {
-        body: { email, password },
-      },
-    ).then((response) => {
+    return HttpClient<LoginBody>('POST', backendAdress + '/api/auth/login', {
+      body: { email, password },
+    }).then((response) => {
       if (!response.ok) throw new Error('Usuário ou senha inválidos');
       const body = response.body as loginResponse;
       if (body.token) tokenService.save(body.token);
@@ -22,7 +21,7 @@ export const authService = {
   async getSession(): Promise<Credencials | false> {
     const accessToken = tokenService.get();
     return HttpClientGet(
-      process.env.REACT_APP_BACKEND_DEV + '/api/auth/session',
+      backendAdress + '/api/auth/session',
       {},
       accessToken,
     ).then((response) => {

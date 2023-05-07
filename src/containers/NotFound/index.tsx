@@ -10,7 +10,7 @@ const NotFound = () => {
       <hr />
       <section className="options">
         Deseja voltar para a página inicial?
-        <Link className="link" to="/home">
+        <Link className="link" to="/">
           Voltar a página inicial
         </Link>
       </section>

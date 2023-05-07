@@ -38,7 +38,7 @@ export const AuthProvider: React.FC<Props> = ({ children }: Props) => {
           try {
             const user = await authService.getSession();
             setCurrentUser(user);
-            navigate('/home');
+            navigate('/');
           } catch (error) {
             setCurrentUser(false);
           }

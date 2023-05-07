@@ -4,6 +4,7 @@ import { Input } from '../../components/ui/Input/Input';
 import { Button } from '../../components/ui/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import getEnv from '../../utils/GetEnv';
 
 interface eventTarget extends HTMLFormControlsCollection {
   name: HTMLInputElement;
@@ -22,6 +23,7 @@ interface SignUpError extends Error {
 }
 
 const Signup = () => {
+  const backendAdress = getEnv.backendAdress();
   const navigate = useNavigate();
   const handleCreateUser: FormEventHandler<HTMLFormElement> = useCallback(
     async (event: React.FormEvent<HTMLFormElement>) => {
@@ -36,7 +38,7 @@ const Signup = () => {
       };
       console.log(body);
       await axios
-        .post(process.env.REACT_APP_BACKEND_DEV + '/api/users', body)
+        .post(backendAdress + '/api/users', body)
         .then(() => {
           navigate('/login');
           //router.push('/');
