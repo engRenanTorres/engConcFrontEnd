@@ -2,7 +2,7 @@ import { Container } from './styles';
 
 type Props = {
   title: string;
-  subtitle: string;
+  subtitle?: string;
 };
 
 const Jumbotron: React.FC<Props> = ({ title, subtitle }: Props) => {

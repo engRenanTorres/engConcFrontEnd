@@ -2,14 +2,14 @@ import PageContent from '../../components/layout/PageContent';
 import DefaultPageProvider from '../../utils/providers/DefalutPageProvider';
 import { StyledMain } from './styled';
 import HomeSideContent from '../../containers/home/SideContent/HomeSideContent';
-import HomeHeader from '../../containers/home/HomeHeader';
+import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-export default function Home() {
+export default function NewQuestion() {
   return (
     <DefaultPageProvider>
       <StyledMain>
-        <HomeHeader />
+        <Header title="criar nova questão" />
         <PageContent sideContent={<HomeSideContent />}>
           <div className="col-md-8 question-main">
             <div className="question-post">

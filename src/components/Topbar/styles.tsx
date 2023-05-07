@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Box } from '@mui/material';
 import { spacings } from '../../styles/typography';
+import { size } from '../../styles/device-sizes';
 
 export const StyledBox = styled(Box)`
   ${({ theme }) => css`
@@ -20,4 +21,8 @@ export const StyledBox = styled(Box)`
       border-radius: ${'3px'};
     }
   `}
+
+  @media (max-width: ${size.tablet}) {
+    //width: 100%;
+  }
 `;

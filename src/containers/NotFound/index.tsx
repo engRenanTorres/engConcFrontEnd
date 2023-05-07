@@ -5,7 +5,7 @@ const NotFound = () => {
   //if (!currentUser) return router.push('/');
   return (
     <Container>
-      <h1>Foi mal! =( </h1>
+      <h1>Foi mal! 404 =( </h1>
       <h2>Página não encontrada...</h2>
       <hr />
       <section className="options">

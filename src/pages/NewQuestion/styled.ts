@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Box } from '@mui/material';
 
 export const StyledMain = styled.main`
   ${({ theme }) => css`

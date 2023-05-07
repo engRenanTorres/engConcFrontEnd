@@ -1,5 +1,5 @@
-import { Box, IconButton } from '@mui/material';
-import InputBase from '@mui/material/InputBase';
+import { Box, IconButton, InputBase, useMediaQuery } from '@mui/material';
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import LogoutIcon from '@mui/icons-material/Logout';
 import NotificationsOutlinedIcon from '@mui/icons-material/NotificationsOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
@@ -8,19 +8,33 @@ import { ThemeSwitcher } from '../ThemeSwitcher';
 import { StyledBox } from './styles';
 import useAuth from '../../utils/hooks/useAuth';
 import { Link } from 'react-router-dom';
+import { useProSidebar } from 'react-pro-sidebar';
 
 const Topbar: React.FC = () => {
   const { currentUser, signout } = useAuth();
+  const { collapseSidebar, collapsed } = useProSidebar();
+  const isNonMobile = useMediaQuery('(min-width:600px)');
   //const currentUser = { name: 'renan' };
   return (
     <StyledBox>
       {/* SEARCH BAR */}
-      <Box className="search-box">
-        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
-        <IconButton className="icon-button" type="button" sx={{ p: 1 }}>
-          <SearchIcon />
+      {isNonMobile && (
+        <Box className="search-box">
+          <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
+          <IconButton className="icon-button" type="button" sx={{ p: 1 }}>
+            <SearchIcon />
+          </IconButton>
+        </Box>
+      )}
+      {!isNonMobile && collapsed && (
+        <IconButton className="icon-button">
+          <MenuOutlinedIcon
+            onClick={() => {
+              collapseSidebar(!collapsed);
+            }}
+          />
         </IconButton>
-      </Box>
+      )}
 
       {/* ICONS */}
       <Box display="flex">

@@ -4,11 +4,14 @@ import Topbar from '../../components/Topbar';
 import styled from 'styled-components';
 import { GlobalStyles } from '../../styles/global-styles';
 import GeneralProvider from './GeneralProvider';
+import { useMediaQuery } from '@mui/material';
+import SidebarMobile from '../../components/SidebarMobile';
 
 interface PageProviderProps {
   children: ReactNode;
 }
 const DefaultPageProvider = ({ children }: PageProviderProps) => {
+  const isNonMobile = useMediaQuery('(min-width:600px)');
   return (
     <GeneralProvider>
       <div className="App">

@@ -1,11 +1,11 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import {
   Sidebar as ProSidebar,
   Menu,
   sidebarClasses,
   useProSidebar,
 } from 'react-pro-sidebar';
-import { Box, ListItem, Typography, useMediaQuery } from '@mui/material';
+import { Box, ListItem, Typography } from '@mui/material';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
 import ContactsOutlinedIcon from '@mui/icons-material/ContactsOutlined';
@@ -16,7 +16,7 @@ import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
 import PieChartOutlineOutlinedIcon from '@mui/icons-material/PieChartOutlineOutlined';
 import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
-import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+//import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import { StyledIcon, StyledNavBox } from './styled';
@@ -28,12 +28,10 @@ const Sidebar = () => {
   const { theme } = useContext(PersistedThemeContext);
   const [selected, setSelected] = useState('Dashboard');
   const { collapseSidebar, collapsed } = useProSidebar();
-  const isNonMobile = useMediaQuery('(min-width:600px)');
-  const hideSidebarInMobileColapsed: boolean = isNonMobile || !collapsed; //used until create a bottom tab mobile navigator
 
   return (
     <StyledNavBox>
-      {hideSidebarInMobileColapsed && (
+      {true && (
         <ProSidebar
           rootStyles={{
             [`.${sidebarClasses.container}`]: {
@@ -55,7 +53,7 @@ const Sidebar = () => {
                 alignItems: 'center',
               }}
             >
-              {collapsed ? <MenuOutlinedIcon /> : undefined}
+              {/*collapsed ? <MenuOutlinedIcon /> : undefined*/}
               {!collapsed && (
                 <Box
                   sx={{
@@ -116,91 +114,93 @@ const Sidebar = () => {
               </Box>
             )}
 
-            <Box paddingLeft={collapsed ? undefined : '10%'}>
-              <Item
-                title="Página inicial"
-                to="/"
-                icon={<HomeOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
+            {!collapsed && (
+              <Box paddingLeft={collapsed ? '0' : '0'}>
+                <Item
+                  title="Página inicial"
+                  to="/"
+                  icon={<HomeOutlinedIcon />}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
 
-              <ItemsTile>Dados</ItemsTile>
-              <Item
-                title="Lista de Questões"
-                to="/questions-lists"
-                icon={<PeopleOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-              <Item
-                title="Inserir Questões"
-                to="/add-questions"
-                icon={<ContactsOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-              <Item
-                title="Buscar Questions"
-                to="/find-questions"
-                icon={<ReceiptOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
+                {!collapsed && <ItemsTile>Dados</ItemsTile>}
+                <Item
+                  title="Lista de Questões"
+                  to="/questions-lists"
+                  icon={<PeopleOutlinedIcon />}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
+                <Item
+                  title="Inserir Questões"
+                  to="/add-questions"
+                  icon={<ContactsOutlinedIcon />}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
+                <Item
+                  title="Buscar Questions"
+                  to="/find-questions"
+                  icon={<ReceiptOutlinedIcon />}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
 
-              <ItemsTile>Provas</ItemsTile>
-              <Item
-                title="Simular Novo Concurso"
-                to="/simulator"
-                icon={<PersonOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-              <Item
-                title="Histórico"
-                to="/history"
-                icon={<CalendarTodayOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-              <Item
-                title="FAQ Page"
-                to="/faq"
-                icon={<HelpOutlineOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
+                {!collapsed && <ItemsTile>Provas</ItemsTile>}
+                <Item
+                  title="Simular Novo Concurso"
+                  to="/simulator"
+                  icon={<PersonOutlinedIcon />}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
+                <Item
+                  title="Histórico"
+                  to="/history"
+                  icon={<CalendarTodayOutlinedIcon />}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
+                <Item
+                  title="FAQ Page"
+                  to="/faq"
+                  icon={<HelpOutlineOutlinedIcon />}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
 
-              <ItemsTile>Sobre</ItemsTile>
-              <Item
-                title="Bar Chart"
-                to="/about"
-                icon={<BarChartOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-              <Item
-                title="Entre em contato"
-                to="/contact"
-                icon={<PieChartOutlineOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-              <Item
-                title="Line Chart"
-                to="/line"
-                icon={<TimelineOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-              <Item
-                title="Geography Chart"
-                to="/geography"
-                icon={<MapOutlinedIcon />}
-                selected={selected}
-                setSelected={setSelected}
-              />
-            </Box>
+                {!collapsed && <ItemsTile>Sobre</ItemsTile>}
+                <Item
+                  title="Bar Chart"
+                  to="/about"
+                  icon={<BarChartOutlinedIcon />}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
+                <Item
+                  title="Entre em contato"
+                  to="/contact"
+                  icon={<PieChartOutlineOutlinedIcon />}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
+                <Item
+                  title="Line Chart"
+                  to="/line"
+                  icon={<TimelineOutlinedIcon />}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
+                <Item
+                  title="Geography Chart"
+                  to="/geography"
+                  icon={<MapOutlinedIcon />}
+                  selected={selected}
+                  setSelected={setSelected}
+                />
+              </Box>
+            )}
           </Menu>
         </ProSidebar>
       )}

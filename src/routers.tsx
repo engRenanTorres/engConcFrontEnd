@@ -22,9 +22,9 @@ export default function AppRouter() {
           <Route element={<PrivateRoutes role={[1, 2]} />}>
             <Route path="/newQuestion" element={<App />} />
           </Route>
-          <Route path="/" element={<App />} />
+          <Route path="/teste" element={<App />} />
           <Route path="/about" element={<About />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/*" element={<NotFound />} />
